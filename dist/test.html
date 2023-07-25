@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Food Items</title>
+  <!-- Include Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-200 min-h-screen">
+   <div class="flex h-screen">
+    <div class="w-9 rounded-lg bg-red-300 p-4>
+        <!-- Placeholder for icons--> 
+        <div class="flex flex-col items-center space-y-4"></div>
+  <div class="container mx-auto mt-10">
+    <h1 class="text-3xl font-semibold mb-4 text-center">Food Menu</h1>
+    <!--<div class="grid grid-cols-2 gap-4">-->
+      <!-- Food Item 1 -->
+      <div class="bg-yellow-400 p-6 rounded-lg shadow-lg cursor-pointer" onclick="showIngredients('Pizza')">
+        <h2 class="text-2xl font-semibold text-white">Pizza</h2>
+        <p class="text-white mt-2">A delicious combination of dough, tomato sauce, cheese, and various toppings.</p>
+      </div>
+      <!-- Food Item 2 -->
+      <div class="bg-blue-400 p-6 rounded-lg shadow-lg cursor-pointer" onclick="showIngredients('Burger')">
+        <h2 class="text-2xl font-semibold text-white">Burger</h2>
+        <p class="text-white mt-2">A juicy burger with a beef patty, cheese, lettuce, tomato, onion, and condiments.</p>
+      </div>
+      <!-- Food Item 3 -->
+      <div class="bg-green-400 p-6 rounded-lg shadow-lg cursor-pointer" onclick="showIngredients('Pasta')">
+        <h2 class="text-2xl font-semibold text-white">Pasta</h2>
+        <p class="text-white mt-2">Delicious Italian pasta cooked with various sauces and garnished with cheese.</p>
+      </div>
+      <!-- Food Item 4 -->
+      <div class="bg-purple-400 p-6 rounded-lg shadow-lg cursor-pointer" onclick="showIngredients('Salad')">
+        <h2 class="text-2xl font-semibold text-white">Salad</h2>
+        <p class="text-white mt-2">A fresh and healthy salad with mixed greens, vegetables, and a light dressing.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+  <!-- Ingredients Modal -->
+  <div class="fixed top-0 left-0 flex items-center justify-center w-full h-full bg-black bg-opacity-50"
+    id="ingredientsModal">
+    <div class="bg-white p-8 rounded-lg">
+      <h2 class="text-2xl font-semibold mb-4" id="foodItemName"></h2>
+      <p class="text-gray-800" id="foodItemIngredients"></p>
+      <button class="mt-6 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600" onclick="hideIngredientsModal()">Close</button>
+    </div>
+  </div>
+
+  <script>
+    function showIngredients(foodItem) {
+      const ingredientsModal = document.getElementById('ingredientsModal');
+      const foodItemName = document.getElementById('foodItemName');
+      const foodItemIngredients = document.getElementById('foodItemIngredients');
+
+      foodItemName.textContent = foodItem;
+      if (foodItem === 'Pizza') {
+        foodItemIngredients.textContent = "Dough, Tomato Sauce, Cheese, Toppings (e.g., Pepperoni, Mushrooms, etc.)";
+      } else if (foodItem === 'Burger') {
+        foodItemIngredients.textContent = "Burger Bun, Beef Patty, Cheese, Lettuce, Tomato, Onion, Pickles, Condiments";
+      } else if (foodItem === 'Pasta') {
+        foodItemIngredients.textContent = "Pasta, Pasta Sauce (e.g., Marinara, Alfredo, Pesto), Olive Oil, Garlic, Parmesan Cheese";
+      } else if (foodItem === 'Salad') {
+        foodItemIngredients.textContent = "Mixed Greens, Cucumbers, Tomatoes, Carrots, Bell Peppers, Balsamic Dressing";
+      }
+
+      ingredientsModal.classList.remove('hidden');
+    }
+
+    function hideIngredientsModal() {
+      const ingredientsModal = document.getElementById('ingredientsModal');
+      ingredientsModal.classList.add('hidden');
+    }
+  </script>
+</body>
+
+</html>
